@@ -6,13 +6,8 @@ namespace exam
     {
         static void Main(string[] args)
         {
-            
-            int examTime = int.Parse(Console.ReadLine());
-
-            int numOfquestion = int.Parse(Console.ReadLine());
-
-            FinalExam finalExam = new FinalExam(examTime, numOfquestion);
-
+            Subject.Subject sub = new Subject.Subject(10,"c#");
+            sub.CreateExam();
         }
     }
 }

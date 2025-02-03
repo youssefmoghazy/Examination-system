@@ -4,13 +4,18 @@ namespace exam.Exam
 {
     public class FinalExam : BaseExam
     {
-        MCQ[] MCQuestions;
-        TrueFalse[] TrueFalseQuestions;
+        BaseQuestion[] questions;
         public FinalExam(int examTime, int numOfQustions)
             : base(examTime, numOfQustions)
         {
-            MCQuestions = new MCQ[numOfQustions / 2];
-            TrueFalseQuestions = new TrueFalse[numOfQustions / 2];
+            questions = new BaseQuestion[numOfQustions];
+            //-------------------V3.0--------------------- 
+            //questions[1] = new TrueFalse("hello", 2);
+            // so we should loop n time and ask the admin to 
+            // enter the type of question and create new exam using one of the two functions
+            // implement getTrueFalseQuestion function
+            // search for time count in c# 
+            // -----------------------------------------
         }
         
 

@@ -8,9 +8,11 @@ namespace exam.Exam
         public PracticalExam(int examTime, int numOfQustions)
             : base(examTime, numOfQustions)
         {
-            MCQuestions = new MCQ[numOfQustions ];
+            MCQuestions = new MCQ[numOfQustions];
+            for (int i = 0; i < MCQuestions.Length; i++)
+            {
+                MCQuestions[i] = getMCQQuestions();
+            }
         }
-
-
     }
 }
