@@ -70,7 +70,41 @@ namespace exam.Exam
 
         public override void showExam()
         {
-            
+            int fullmark = 0;
+            int result = 0;
+            for (int i = 0; i < questions.Length; i++)
+            {
+                if (questions[i] is MCQ)
+                {
+                    MCQ mcqQuestion = questions[i] as MCQ;
+                    showMCQuestion(ref result, ref fullmark, mcqQuestion);
+                }
+                else if (questions[i] is TrueFalse)
+                {
+                    TrueFalse TFQuestion = questions[i] as TrueFalse;
+                    showTFQuestion(ref result, ref fullmark, TFQuestion);
+                }
+            }
+            Console.WriteLine("=================================================");
+            Console.WriteLine($"You got {result} / {fullmark}");
+        }
+
+        internal void showTFQuestion(ref int result, ref int fullmark, TrueFalse TFQuestion)
+        {
+            Console.WriteLine($"MCQ question:       mark({TFQuestion.Mark})");
+            Console.WriteLine(TFQuestion);
+            Console.WriteLine("True         False");
+            Console.WriteLine("---------------------------------------------");
+            int theAnswer;
+            while (!(int.TryParse(Console.ReadLine(), out theAnswer) &&( theAnswer == 1 || theAnswer ==2)))
+            {
+                Console.WriteLine("Retry (Right answer must be 1 or 2):");
+            }
+            fullmark += TFQuestion.Mark;
+            if (TFQuestion.rightAnswer.AnswerId == theAnswer)
+            {
+                result += TFQuestion.Mark;
+            }
         }
     }
 

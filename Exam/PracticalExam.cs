@@ -31,7 +31,7 @@ namespace exam.Exam
             {
                 MCQ mcqQuestion = questions[i] as MCQ;
                 Console.WriteLine("----------------");
-                Console.WriteLine(mcqQuestion.Body);
+                Console.WriteLine(mcqQuestion);
                 Console.WriteLine($"the right answer : {mcqQuestion.rightAnswer.AnswerText}");
             }
         }

@@ -25,5 +25,9 @@
             this.body = body;
             this.mark = mark;
         }
+        public override string ToString()
+        {
+            return Body;
+        }
     }
 }
