@@ -15,19 +15,13 @@ namespace exam.Subject
 
         private string Name {  get; set; }
 
-        private int Exam {  get; set; }
-
-        public Subject ()
-        {
-
-        }
+        internal BaseExam Exam {  get; set; }
 
         public Subject(int id,string name)
         {
             Id = id;
             Name = name;
         }
-        BaseExam myExam;
         public void CreateExam()
         {
             Console.WriteLine("Please enter tge type of the exam you" +
@@ -37,7 +31,6 @@ namespace exam.Subject
             {
                 Console.WriteLine("retry (1 for practical , 2 for final)");
             }
-            Exam = type;
 
             Console.WriteLine("please enter the time of the exam you want to create : ");
             int timeInMin;
@@ -52,14 +45,14 @@ namespace exam.Subject
             {
                 Console.WriteLine("retry (number of questions must be greater than 0)");
             }
-            if (Exam == 1)
+            if (type == 1)
             {
-                myExam = new PracticalExam(timeInMin, numOfQues);
+                Exam = new PracticalExam(timeInMin, numOfQues);
 
             }
             else
             {
-                myExam = new FinalExam(timeInMin, numOfQues);
+                Exam = new FinalExam(timeInMin, numOfQues);
             }
         }
         

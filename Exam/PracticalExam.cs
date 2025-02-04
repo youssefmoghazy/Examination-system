@@ -4,14 +4,35 @@ namespace exam.Exam
 {
     internal class PracticalExam : BaseExam
     {
-        MCQ[] MCQuestions;
+
         public PracticalExam(int examTime, int numOfQustions)
             : base(examTime, numOfQustions)
         {
-            MCQuestions = new MCQ[numOfQustions];
-            for (int i = 0; i < MCQuestions.Length; i++)
+            questions = new MCQ[numOfQustions];
+            for (int i = 0; i < numOfQustions; i++)
             {
-                MCQuestions[i] = getMCQQuestions();
+                Console.Clear();
+                Console.WriteLine("MCQ question :");
+                questions[i] = getMCQQuestions(i + 1);
+            }
+        }
+        public override void showExam()
+        {
+            int fullmark = 0;
+            int result = 0;
+            for (int i = 0; i < questions.Length; i++)
+            {
+                MCQ mcqQuestion = questions[i] as MCQ;
+                showMCQuestion(ref result,ref fullmark, mcqQuestion);
+            }
+            Console.WriteLine("=================================================");
+            Console.WriteLine($"You got {result} / {fullmark}");
+            for (int i = 0; i < questions.Length; i++)
+            {
+                MCQ mcqQuestion = questions[i] as MCQ;
+                Console.WriteLine("----------------");
+                Console.WriteLine(mcqQuestion.Body);
+                Console.WriteLine($"the right answer : {mcqQuestion.rightAnswer.AnswerText}");
             }
         }
     }

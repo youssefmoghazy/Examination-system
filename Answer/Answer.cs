@@ -1,14 +1,21 @@
 ﻿namespace exam.Answer
 {
-    internal class Answer
+    internal class Answer 
     {
-        private int AnswerId { get; set; }
-        private string AnswerText { get; set; }
+        internal int AnswerId { get; set; }
+        internal string AnswerText { get; set; }
 
         public Answer(int answerId, string answerText)
         {
             AnswerId = answerId;
             AnswerText = answerText;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            Answer? ans = obj as Answer;
+            if (ans == null) return false;
+            return (AnswerId == ans.AnswerId);
         }
     }
 }

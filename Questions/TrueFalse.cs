@@ -1,11 +1,13 @@
-﻿namespace exam.Questions
+﻿
+namespace exam.Questions
 {
     internal class TrueFalse :BaseQuestion
     {
-        public TrueFalse(string body, int mark)
+        private Answer.Answer rightAnswer { get; set; }
+        public TrueFalse(string body, int mark, Answer.Answer answer)
             : base(2, body, mark)
         {
-
+            this.rightAnswer = answer;
         }
 
     }
